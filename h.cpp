@@ -89,6 +89,7 @@ void main_program()
     transport* v4 = new helicopter("Lego helicopter", 120, 0, "2");
     transport* v5 = new war_helicopter("Shitcopter", 80, 4, "3", 4);
 
+    cout << endl;
     v1->move();
     cout << endl;
     cout << endl;
