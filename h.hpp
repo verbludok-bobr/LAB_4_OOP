@@ -11,62 +11,62 @@ class transport
     protected: // доступ цьому класу і всім нащадкам
         string name;   //назва обєкту
         int speed;   // швидкість 
-        int veels;   // скільки колес має 
+        int turb;   // скільки колес має 
 
     public:
         transport();
         transport(string n, int s, int v);
         void set_speed(int s);
-        void set_veels(int v);
+        void set_turb(int v);
         void set_name(string n);
         virtual void move(); // вивід для моторних загального    
-        void show(); // вивід для велосипедів (не моторних)
+        virtual void show(); // вивід для велосипедів (не моторних)
 };
 //======== М А Ш И Н К И ===========
-class car : public transport
+class plane : public transport
 {
     protected:
-        int doors;
+        int cocpit;
     public:
-        car (string n, int s, int v, int d);
+        plane (string n, int s, int t, int c);
         virtual void move();
 };
 
-class electro_car : public car
+class jetplane : public plane
 {
     protected:
-        int battery;
+        int minigun;
     public:
-        electro_car(string n, int s, int v, int d, int b);
+        jetplane(string n, int s, int t, int c, int m);
         //void move();
 };
 
-class bus : public car
+class bomb_plane : public plane
 {
     protected:
-        int passangers;
+        int bombs;
 
     public:
-        bus(string n, int s, int v, int d, int p);
+        bomb_plane(string n, int s, int t, int c, int bomb);
         void move() override;
 };
 //============ Б І К У К Л Е =================
-class bicycle : public transport
+class helicopter : public transport
 {
     protected:
-        string light;
+        string rotor_blade;
     public:
-        bicycle(string n, int s, int v, string l);
-        void show();
+        helicopter(string n, int s, int t, string r);
+        virtual void show();
 };
 
-class electro_bicycle : public bicycle
+class war_helicopter : public helicopter
 {
     protected:
-        int bbattery;
+        int rocket_salvo;
     public:
-        electro_bicycle(string n,int s, int v, string l, int bb);
-        void show();
+        war_helicopter(string n, int s, int t, string r, int rs);
+        virtual void show();
 };
 
 void main_program();

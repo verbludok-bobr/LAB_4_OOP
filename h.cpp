@@ -4,20 +4,20 @@
 
 using namespace std;
 //===========================================================================================
-transport::transport(string n, int s, int v)
+transport::transport(string n, int s, int t)
 {
     name = n;
     speed = s;
-    veels = v;
+    turb = t;
 }
 
 void transport::move()
 {
-    cout << name << " going: " << speed << " down the road and have: " << veels <<" veels";
+    cout << name << " going: " << speed << " in the air: " << turb <<" turbine";
 }
 void transport::show()
 {
-    cout << name << " bicycle going on the strets around: " << speed << " km/hour ";
+    cout << name << " helicopter going: " << speed << " km/hour and has: ";
 }
 //===========================================================================================
 void transport::set_name(string n)
@@ -28,76 +28,66 @@ void transport::set_speed(int s)
 {
     speed = s;
 }
-void transport::set_veels(int v)
+void transport::set_turb(int t)
 {
-    veels = v;
+    turb = t;
 }
 //===========================================================================================
-car::car (string n, int s, int v, int d) : transport(n, s, v)
+plane::plane (string n, int s, int t, int c) : transport(n, s, t)
 {
-    doors = d;
+    cocpit = c;
 }
 
-void car::move()
+void plane::move()
 {
-    cout << name << " going: "<< speed << " km/hour down the road and have: "<< veels << " veels and car have: "<< doors <<" doors";  
-}
-
-//===========================================================================================
-electro_car::electro_car(string n, int s, int v, int d, int b) : car (n, s, v, d)
-{
-    battery = b;
-}
-/*
-void electro_car::move()
-{
-    cout << name << " going: "<< speed << " km/hour on a driveway and have: "<< veels << " veels and car have: "<< doors 
-    <<" doors and also have tis amount of batteries: "<< battery;
-}
-*/
-//===========================================================================================
-bus::bus(string n, int s, int v, int d, int p) : car (n, s, v, d)
-{
-    passangers = p;
-}
-
-void bus::move()
-{
-    cout << name << " going: "<< speed << " km/hour around citi and have: "<< veels << " veels and car have: "<< doors 
-    <<" doors and can have around: "<< passangers << " people inside";
+    cout << name << " going: "<< speed << " km/hour in the air he has: "<< turb << " turbins and: "<< cocpit <<" cocpit";  
 }
 
 //===========================================================================================
-bicycle::bicycle(string n, int s, int v, string l) : transport (n, s, v)
+jetplane::jetplane(string n, int s, int t, int c, int m) : plane (n, s, t, c)
 {
-    light = l;
+    minigun = m;
 }
-/*
-void bicycle::show()
-{
-    cout <<name <<" with: " << veels <<" veels goes: "<< speed <<" km/hour on asphalt and its: "<< light;
-}
-*/
 //===========================================================================================
-electro_bicycle::electro_bicycle(string n, int s, int v, string l, int bb) : bicycle(n, s, v, l)
+bomb_plane::bomb_plane(string n, int s, int t, int c, int bomb) : plane (n, s, t, c)
 {
-    bbattery = bb;
+    bombs = bomb;
 }
-/*
-void electro_bicycle::show()
+
+void bomb_plane::move()
 {
-    cout<<" Electrical bike called: "<< name <<" can go: "<< speed <<" km/hour have: "<< veels<<" veels and: "<< light<< " also has: "
-    << bbattery <<" batterys";
+    cout << name << " going max: "<< speed << " km/hour to the target it has: "<< turb << " turbins and have: "<< cocpit 
+    <<" cocpits and can have up to: "<< bombs << " bombs inside";
 }
-*/
+
+//===========================================================================================
+helicopter::helicopter(string n, int s, int t, string r) : transport (n, s, t)
+{
+    rotor_blade = r;
+}
+void helicopter::show()
+{
+    cout << name <<" with: " << turb <<" turbine and can go up to: "<< speed <<" km/hour becouse it has: "<< rotor_blade << " rotor blades";
+}
+//===========================================================================================
+war_helicopter::war_helicopter(string n, int s, int t, string r, int rs) : helicopter(n, s, t, r)
+{
+    rocket_salvo = rs;
+}
+void war_helicopter::show()
+{
+    cout << name <<" it has: " << turb <<" turbine and can go up to: "<< speed <<" km/hour couse it has: "<< rotor_blade
+     << " rotor blades and also it has "<< rocket_salvo << " rocket_slvos";
+}
+
 //===========================================================================================
 void main_program()
 {
-    transport* v1 = new car ("Renault", 110, 4, 4);
-    transport* v2 = new electro_car("Tesla", 90, 4, 4, 6);
-    transport* v3 = new bus ("School bus", 50, 4, 3, 45);
-    transport* v4 = new bicycle("Sport", 20, 2, "Very light");
-    transport* v5 = new electro_bicycle("Esport", 50, 2,"Hard to pick up", 2);
+    transport* v1 = new plane ("Plane", 240, 1, 1);
+    transport* v2 = new jetplane("Black bird", 770, 2, 1, 0);
+    transport* v3 = new bomb_plane ("Bomber man", 350, 4, 2, 26);
+    transport* v4 = new helicopter("Lego helicopter", 120, 0, "2");
+    transport* v5 = new war_helicopter("Shitcopter", 80, 4, "3", 4);
 
     v1->move();
     cout << endl;
