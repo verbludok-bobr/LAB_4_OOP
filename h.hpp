@@ -25,9 +25,11 @@ class transport
 //======== C А М О Л Е Т И К И ===========
 class plane : public transport
 {
-    protected:
+    private:
         int cocpit;
     public:
+        int get_cocpit();
+        void set_cocpit(int c);
         plane (string n, int s, int t, int c);
         virtual void move();
 };

@@ -33,7 +33,16 @@ void transport::set_turb(int t)
     turb = t;
 }
 //===========================================================================================
-plane::plane (string n, int s, int t, int c) : transport(n, s, t)
+int plane::get_cocpit()
+{
+    return cocpit;
+}
+
+void plane::set_cocpit(int coc)
+{
+    cocpit = coc;
+}
+plane::plane (string n, int s, int t, int c) : transport (n, s, t)
 {
     cocpit = c;
 }
@@ -56,7 +65,7 @@ bomb_plane::bomb_plane(string n, int s, int t, int c, int bomb) : plane (n, s, t
 
 void bomb_plane::move()
 {
-    cout << name << " going max: "<< speed << " km/hour to the target it has: "<< turb << " turbins and have: "<< cocpit 
+    cout << name << " going max: "<< speed << " km/hour to the target it has: "<< turb << " turbins and have: "<< get_cocpit()
     <<" cocpits and can have up to: "<< bombs << " bombs inside";
 }
 
@@ -67,7 +76,8 @@ helicopter::helicopter(string n, int s, int t, string r) : transport (n, s, t)
 }
 void helicopter::show()
 {
-    cout << name <<" with: " << turb <<" turbine and can go up to: "<< speed <<" km/hour becouse it has: "<< rotor_blade << " rotor blades";
+    cout << name <<" with: " << turb <<" turbine and can go up to: "<< speed <<" km/hour becouse it has: "<< 
+    rotor_blade << " rotor blades";
 }
 //===========================================================================================
 war_helicopter::war_helicopter(string n, int s, int t, string r, int rs) : helicopter(n, s, t, r)
