@@ -11,7 +11,7 @@ class transport
     protected: // доступ цьому класу і всім нащадкам
         string name;   //назва обєкту
         int speed;   // швидкість 
-        int turb;   // скільки колес має 
+        int turb;   // скільки турбин
 
     public:
         transport();
@@ -20,7 +20,7 @@ class transport
         void set_turb(int t);
         void set_name(string n);
         virtual void move(); // вивід для моторних загального    
-        virtual void show(); // вивід для велосипедів (не моторних)
+        virtual void show(); // вивід для гвинтокрилів
 };
 //======== М А Ш И Н К И ===========
 class plane : public transport
