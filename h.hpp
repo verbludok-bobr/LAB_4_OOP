@@ -17,7 +17,7 @@ class transport
         transport();
         transport(string n, int s, int v);
         void set_speed(int s);
-        void set_turb(int v);
+        void set_turb(int t);
         void set_name(string n);
         virtual void move(); // вивід для моторних загального    
         virtual void show(); // вивід для велосипедів (не моторних)
