@@ -8,7 +8,7 @@ using namespace std;
 
 class transport
 {
-    protected: // доступ цьому класу і всім нащадкам
+    protected:
         string name;   //назва обєкту
         int speed;   // швидкість 
         int turb;   // скільки турбин
@@ -22,7 +22,7 @@ class transport
         virtual void move(); // вивід для моторних загального    
         virtual void show(); // вивід для гвинтокрилів
 };
-//======== М А Ш И Н К И ===========
+//======== C А М О Л Е Т И К И ===========
 class plane : public transport
 {
     protected:
@@ -50,7 +50,7 @@ class bomb_plane : public plane
         bomb_plane(string n, int s, int t, int c, int bomb);
         void move() override;
 };
-//============ Б І К У К Л Е =================
+//============ Х Е Л І К О П Т А =================
 class helicopter : public transport
 {
     protected:
